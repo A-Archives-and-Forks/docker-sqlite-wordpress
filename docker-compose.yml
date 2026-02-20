@@ -4,6 +4,7 @@ services:
 
   wordpress:
     image: soulteary/sqlite-wordpress:6.9.1
+    # or use: ghcr.io/soulteary/sqlite-wordpress:6.9.1
     restart: always
     ports:
       - 8080:80

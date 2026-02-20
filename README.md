@@ -6,6 +6,7 @@ WordPress with SQLite, ready to use out of the box.
 
 - Based on [official image](https://hub.docker.com/_/wordpress), Easier and more sustainable solution.
 - DockerHub Page: https://hub.docker.com/r/soulteary/sqlite-wordpress
+- GHCR Page: https://github.com/soulteary/docker-sqlite-wordpress/pkgs/container/sqlite-wordpress
 
 ## Articles
 
@@ -17,16 +18,22 @@ WordPress with SQLite, ready to use out of the box.
 You can download GitHub's clean and secure docker image using the following command:
 
 ```bash
-# use latest
+# Docker Hub: use latest
 docker pull soulteary/sqlite-wordpress
-# use specify version
+# Docker Hub: use specify version
 docker pull soulteary/sqlite-wordpress:6.9.1
+# GHCR: use latest
+docker pull ghcr.io/soulteary/sqlite-wordpress:latest
+# GHCR: use specify version
+docker pull ghcr.io/soulteary/sqlite-wordpress:6.9.1
 ```
 
 Use the following command to quickly launch the wordpress with port `8080`:
 
 ```bash
 docker run --rm -it -p 8080:80 -v `pwd`/wordpress:/var/www/html soulteary/sqlite-wordpress
+# or use GHCR
+docker run --rm -it -p 8080:80 -v `pwd`/wordpress:/var/www/html ghcr.io/soulteary/sqlite-wordpress:latest
 ```
 
 You can also use docker compose to start wordpress:
@@ -38,6 +45,7 @@ services:
 
   wordpress:
     image: soulteary/sqlite-wordpress:6.9.1
+    # or use: ghcr.io/soulteary/sqlite-wordpress:6.9.1
     restart: always
     ports:
       - 8080:80
